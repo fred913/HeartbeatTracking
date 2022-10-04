@@ -3,28 +3,32 @@ import time
 from . import HeartbeatTrackingClient
 from . import HeartbeatTrackingServer
 import sys
+from flask import Flask
 
 if __name__ == "__main__":
     if len(sys.argv) >= 2:
         if sys.argv[1] == "start-server":
-            server = HeartbeatTrackingServer()
-            server.run()
+            app = Flask("heartbeattracking")
+            tracking_server_bp = HeartbeatTrackingServer()
+            tracking_server_bp.register_to_app(app)
+            app.run("0.0.0.0", 5999)
+
         elif sys.argv[1] == "start-test-client":
-            server = HeartbeatTrackingClient("127.0.0.1")
+            client = HeartbeatTrackingClient("127.0.0.1")
             while True:
                 try:
                     value = random.randint(70, 90)
                     print("value:", value)
-                    server.update(value)
+                    client.update(value)
                     time.sleep(random.randint(3, 5))
                 except KeyboardInterrupt:
                     print("Stopped.")
                     break
         elif sys.argv[1] == "start-poll-client":
-            server = HeartbeatTrackingClient("127.0.0.1")
+            client = HeartbeatTrackingClient("127.0.0.1")
             while True:
                 try:
-                    print("value:", server.get(), end="     \r")
+                    print("value:", client.get(), end="     \r")
                     time.sleep(1)
                 except KeyboardInterrupt:
                     print("Stopped.")
