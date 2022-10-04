@@ -10,7 +10,7 @@ class HeartbeatTrackingServer():
         self.current_heartbeat = None
         self.last_update = None
         self.register_routes()
-        self.heartbeat_timeout = 10
+        self.heartbeat_timeout = 16
 
     def register_routes(self):
         self.web_app.add_url_rule("/heartbeat/update",
@@ -21,13 +21,17 @@ class HeartbeatTrackingServer():
                                   view_func=self.get_heartbeat_web_controller,
                                   methods=["GET"],
                                   endpoint="heartbeat_get")
+        self.web_app.add_url_rule("/heartbeat/show",
+                                  view_func=self.show_heartbeat_web_controller,
+                                  methods=["GET"],
+                                  endpoint="heartbeat_show")
 
     def update_web_controller(self):
         # post a heartbeat data
         self.update_time = time.time()
-        self.current_heartbeat = request.form.get("value",
-                                                  default=request.args.get(
-                                                      "value", default=None))
+        self.current_heartbeat = float(
+            request.form.get("value",
+                             default=request.args.get("value", default=None)))
         assert self.current_heartbeat is not None
         return "OK"
 
@@ -48,6 +52,9 @@ class HeartbeatTrackingServer():
                 not ((time.time() - self.update_time) < self.heartbeat_timeout)
             })
         return "Format method '%s' not found" % (format_, ), 404
+
+    def show_heartbeat_web_controller(self):
+        return flask.render_template("hb_show.html")
 
     def run(self):
         self.web_app.run("0.0.0.0", 5999)

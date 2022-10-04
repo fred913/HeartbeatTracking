@@ -13,10 +13,19 @@ if __name__ == "__main__":
             server = HeartbeatTrackingClient("127.0.0.1")
             while True:
                 try:
-                    value=random.randint(70, 90)
+                    value = random.randint(70, 90)
                     print("value:", value)
                     server.update(value)
                     time.sleep(random.randint(3, 5))
+                except KeyboardInterrupt:
+                    print("Stopped.")
+                    break
+        elif sys.argv[1] == "start-poll-client":
+            server = HeartbeatTrackingClient("127.0.0.1")
+            while True:
+                try:
+                    print("value:", server.get(), end="     \r")
+                    time.sleep(1)
                 except KeyboardInterrupt:
                     print("Stopped.")
                     break

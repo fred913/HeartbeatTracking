@@ -16,3 +16,4 @@ python_version = "3"
 [scripts]
 start-server = "pipenv run python -m heartbeattracking start-server"
 start-test-client = "pipenv run python -m heartbeattracking start-test-client"
+start-poll-client = "pipenv run python -m heartbeattracking start-poll-client"

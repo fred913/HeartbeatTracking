@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/css/mdui.min.css" rel="stylesheet">
+    <style>
+        .txt-color {
+            color: white;
+        }
+    </style>
+</head>
+
+<body style="background-color:green;">
+    <div class="mdui-container">
+        <div class="mdui-typo txt-color">
+            <h3>心率监测</h3>
+            <h5><span id="hb-value">0</span> BPM</h5>
+        </div>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js"></script>
+    <script>
+        window.$ = mdui.$;
+        $.ajax({
+            method: 'GET',
+            url: '/heartbeat/get?format=json',
+            success: function (rawData) {
+                var data = JSON.parse(rawData)
+                $("#hb-value").text(data.value);
+            }
+        });
+    </script>
+</body>
+
+</html>

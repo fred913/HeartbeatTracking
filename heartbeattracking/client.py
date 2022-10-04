@@ -15,3 +15,11 @@ class HeartbeatTrackingClient:
             f"{'https' if self.host[2] else 'http'}://{self.host[0]}:{self.host[1]}/heartbeat/update",
             data={"value": value})
         assert response.status_code == 200
+
+    def get(self):
+        response = self.session.get(
+            f"{'https' if self.host[2] else 'http'}://{self.host[0]}:{self.host[1]}/heartbeat/get?format=json"
+        )
+        assert response.status_code == 200
+        assert not response.json()['outdated']
+        return response.json()['value']
