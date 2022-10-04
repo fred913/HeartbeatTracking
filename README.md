@@ -15,7 +15,7 @@ A simple heartbeat tracking system, which could be used in Beat Saber live.
 2. Download the file marked as `Sources (ZIP)`.
 3. Extract the ZIP file **to an empty directory**, the second one in step 2. 
 4. Open the terminal (for Windows users, `cmd.exe`, `powershell.exe` or the `Windows Terminal`; for MacOS users, the `Terminal`; for Linux users, you must know about it or you should not use Linux), and open the extracted directory. 
-5. Type `pip install pipenv && pipenv lock && pipenv sync && pipenv lock`. The steps should be automatically done. The installation process has finished. 
+5. Type `pip install pipenv && pipenv lock && pipenv sync && pipenv lock`. The steps should be automatically done. Then the installation process has finished. 
 6. To run the server (PC side), open a terminal at where the files are located (the extracted zip) and type `pipenv run start-server`. To stop the server, press `Ctrl-C`.
 
 ### Wear side
