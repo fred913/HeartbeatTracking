@@ -9,7 +9,7 @@ A simple heartbeat tracking system, which could be used in Beat Saber live.
 ## Supported tracking devices
  - ALL Android **Wear** devices, like Mi Watch (2018), TicWatch
 
-## Installation (for **GEEKS**) (the one for normal users is on its way)
+## Installation
 ### PC side (Make sure you have Python 3.7+ installed)
 1. Go to [Releases](https://git.ft2.club/fred913/HeartbeatTracking/releases) and find the latest one, the top of the list.
 2. Download the file marked as `Sources (ZIP)`.
