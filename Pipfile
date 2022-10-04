@@ -5,9 +5,14 @@ name = "pypi"
 
 [packages]
 flask = "*"
+requests = "*"
 
 [dev-packages]
 yapf = "*"
 
 [requires]
 python_version = "3"
+
+[scripts]
+start-server = "pipenv run python -m heartbeattracking start-server"
+start-test-client = "pipenv run python -m heartbeattracking start-test-client"
