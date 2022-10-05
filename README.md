@@ -11,7 +11,7 @@ A simple heartbeat tracking system, which could be used in Beat Saber live.
 
 ## Installation
 ### PC side (Make sure you have Python 3.7+ installed)
-1. Go to [Releases](https://git.ft2.club/fred913/HeartbeatTracking/releases) and find the latest one, the top of the list.
+1. Go to [Releases](https://git.ft2.club/fred913/HeartbeatTracking/releases){:target="_blank"} and find the latest one, the top of the list.
 2. Download the file marked as `Sources (ZIP)`.
 3. Extract the ZIP file **to an empty directory**, the second one in step 2. 
 4. Open the terminal (for Windows users, `cmd.exe`, `powershell.exe` or the `Windows Terminal`; for MacOS users, the `Terminal`; for Linux users, you must know about it or you should not use Linux), and open the extracted directory. 
@@ -20,7 +20,7 @@ A simple heartbeat tracking system, which could be used in Beat Saber live.
 
 ### Wear side
 1. Connect your watch to your PC. Make sure your PC has `adb` installed. 
-2. Go to [Releases](https://git.ft2.club/fred913/HeartbeatTracking/releases) and find the latest one (the top of the list), and download the APK file from the `Files` section.
+2. Go to [Releases](https://git.ft2.club/fred913/HeartbeatTracking/releases){:target="_blank"} and find the latest one (the top of the list), and download the APK file from the `Files` section.
 3. Open a terminal at where the APK is located.  
 4. Type `adb devices` and check if your Wear has connected. It should be like this:
 ```
