@@ -36,7 +36,7 @@ Notice it's **device**. It shouldn't be `unauthorized`. If so, check for a permi
 9. After typing the IP address, click `TRIGGER`. The heartbeat tracking will get started.
 
 ### Final steps
-Open `http://127.0.0.1:5999/heartbeat/show` in your browser and enjoy it! 
+Open [this link](http://127.0.0.1:5999/heartbeat/show) in your browser and enjoy it! 
 (NOTE: You can open the page in OBS browser and do something like a Greenscreen. Or adding it to OVR toolkit is also OK. You can do everything you want - like capturing the API, editing the code and beautify the page, because it's open-source.)
 
 ## Contribution
