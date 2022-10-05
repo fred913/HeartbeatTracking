@@ -30,7 +30,7 @@ XXXXXXXXXXXXXXXX  device
 Notice it's **device**. It shouldn't be `unauthorized`. If so, check for a permission prompt on your watch and accept it. 
 
 5. Type `adb install ` (with one space at last), and input the full name of the APK file. On Windows, you can drag the file to the terminal window to prevent any mistake. 
-6. Type ENTER. 
+6. Type ENTER, then wait until `Success` appears on the screen. 
 7. Open the app on your watch. 
 8. Find your PC's IP address and start the server on your PC, and type it on your watch, in the area. (For v0.1, there's a default value `10.0.0.29` and it shouldn't be used)
 9. After typing the IP address, click `TRIGGER`. The heartbeat tracking will get started.
