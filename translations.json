@@ -1,0 +1,13 @@
+{
+    "zh_CN": {
+        "hb_options.html": {
+            "title": "设置页",
+            ".translation-choose-page-type": "选择页面展示类型...",
+            ".translation-page-type-greenscreen": "绿幕（OBS）",
+            ".translation-page-type-normal": "正常",
+            ".translation-page-title": "页面标题",
+            ".translation-submit-to-show": "打开展示页面",
+            ".translation-heartbeat-unit": "心率单位"
+        }
+    }
+}

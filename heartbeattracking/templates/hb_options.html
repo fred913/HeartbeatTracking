@@ -13,20 +13,20 @@
     <div class="mdui-container">
         <form action="show" method="GET">
             <select class="mdui-select" name="type" required mdui-select>
-                <option value="_disabled" disabled selected>Choose page type...</option>
-                <option value="normal">Normal show page</option>
-                <option value="greenscreen">Greenscreen</option>
+                <option value="_disabled" class="translation-choose-page-type" disabled selected>Choose page type...</option>
+                <option value="normal" class="translation-page-type-normal">Normal show page</option>
+                <option value="greenscreen" class="translation-page-type-greenscreen" >Greenscreen</option>
             </select>
             <div class="mdui-textfield mdui-textfield-floating-label">
-                <label class="mdui-textfield-label">Page title</label>
+                <label class="mdui-textfield-label translation-page-title">Page title</label>
                 <input class="mdui-textfield-input" type="text" value="Heartbeat Tracking" name="title" required />
             </div>
             <div class="mdui-textfield mdui-textfield-floating-label">
-                <label class="mdui-textfield-label">Heartbeat Unit</label>
+                <label class="mdui-textfield-label translation-heartbeat-unit">Heartbeat Unit</label>
                 <input class="mdui-textfield-input" type="text" value="BPM" name="bpm-unit" required />
             </div>
 
-            <button class="mdui-btn mdui-btn-raised mdui-ripple" type="submit">show</button>
+            <button class="mdui-btn mdui-btn-raised mdui-ripple translation-submit-to-show" type="submit">show</button>
         </form>
     </div>
     <script src="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js"></script>
