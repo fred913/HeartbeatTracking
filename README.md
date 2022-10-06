@@ -42,7 +42,7 @@ Open [this link](http://127.0.0.1:5999/heartbeat/show) in your browser and enjoy
 (NOTE: You can open the page in OBS browser and do something like a Greenscreen. Or adding it to OVR toolkit is also OK. You can do everything you want - like capturing the API, editing the code and beautify the page, because it's open-source.)
 
 ## Contribution
-Currently the project needs tons of ideas. If you're ready to help, please write an email to me at `fredtools999@gmail.com`. If you're good at Python, just register an account in my Git service. Pull Requests are absolubely welcomed. 
+Currently the project needs tons of ideas. If you're ready to help, please write an email to me at `fredtools999@gmail.com` (or just open an issue on this site). If you're good at Python, just register an account in my Git service. Pull Requests are absolubely welcomed. 
 
 ## Last words
 If you like the project, please share it to your friends who need it. Thanks. 
