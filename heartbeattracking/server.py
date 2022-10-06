@@ -6,7 +6,7 @@ import flask
 class HeartbeatTrackingServer():
 
     def __init__(self):
-        self.blueprint = Blueprint("heartbeattracking")
+        self.blueprint = Blueprint("heartbeattracking", "heartbeattracking")
         self.current_heartbeat = None
         self.last_update = None
         self._register_routes()
@@ -24,9 +24,18 @@ class HeartbeatTrackingServer():
             endpoint="heartbeat_get")
         self.blueprint.add_url_rule(
             "/show",
-            view_func=self.show_heartbeat_web_controller,
+            view_func=self._get_template_controller("hb_show.html"),
             methods=["GET"],
             endpoint="heartbeat_show")
+
+        self.blueprint.add_url_rule(
+            "/prepare",
+            view_func=self._get_template_controller("hb_options.html"),
+            methods=["GET"],
+            endpoint="heartbeat_prepare")
+
+    def _get_template_controller(self, template_name):
+        return lambda: flask.render_template(template_name)
 
     def _update_web_controller(self):
         # post a heartbeat data
@@ -39,7 +48,7 @@ class HeartbeatTrackingServer():
 
     def _get_heartbeat_web_controller(self):
         # get heartbeat data
-        assert self.current_heartbeat
+        assert self.current_heartbeat is not None
         format_ = request.args.get("format", default="plain")
         if format_ == 'plain':
             assert (time.time() - self.update_time) < self.heartbeat_timeout
@@ -54,9 +63,6 @@ class HeartbeatTrackingServer():
                 not ((time.time() - self.update_time) < self.heartbeat_timeout)
             })
         return "Format method '%s' not found" % (format_, ), 404
-
-    def show_heartbeat_web_controller(self):
-        return flask.render_template("hb_show.html")
 
     def register_to_app(self, app: flask.Flask, **kwargs):
         url_prefix = kwargs.pop("url_prefix", "/heartbeat")

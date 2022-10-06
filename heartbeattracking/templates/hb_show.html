@@ -7,31 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/css/mdui.min.css" rel="stylesheet">
-    <style>
-        .txt-color {
-            color: white;
-        }
-    </style>
 </head>
 
-<body style="background-color:green;">
+<body>
     <div class="mdui-container">
         <div class="mdui-typo txt-color">
-            <h3>心率监测</h3>
-            <h5><span id="hb-value">0</span> BPM</h5>
+            <h3 id="inside-title"></h3>
+            <h5><span id="hb-value">0</span> <span id="bpm-unit">BPM</span></h5>
         </div>
     </div>
     <script src="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js"></script>
     <script>
         window.$ = mdui.$;
-        $.ajax({
-            method: 'GET',
-            url: '/heartbeat/get?format=json',
-            success: function (rawData) {
-                var data = JSON.parse(rawData)
-                $("#hb-value").text(data.value);
-            }
-        });
+        window.argv = new URLSearchParams(document.location.search);
+
+        // init params
+        if (argv.get("type") == "greenscreen") {
+            $("body").css("background-color", "rgb(10, 154, 56)");
+
+            $(".txt-color").css("color", "white")
+        }
+        if (argv.get("title")) { $("#inside-title").text(argv.get("title")); $("title").text(argv.get("title")); }
+        if (argv.get("unit")) $("#bpm-unit").text(argv.get("title"));
+
+
+        setInterval(function () {
+            $.ajax({
+                method: 'GET',
+                url: '/heartbeat/get?format=json',
+                success: function (rawData) {
+                    var data = JSON.parse(rawData)
+                    $("#hb-value").text(data.value);
+                }
+            });
+        }, 800);
+
     </script>
 </body>
 
