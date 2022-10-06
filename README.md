@@ -21,7 +21,7 @@ A simple heartbeat tracking system, which could be used in Beat Saber live.
 6. To run the server (PC side), open a terminal at where the files are located (the extracted zip) and type `pipenv run start-server`. To stop the server, press `Ctrl-C`.
 
 ### Wear side
-1. Connect your watch to your PC. Make sure your PC has `adb` (AKA Android Debug Bridge) installed. 
+1. Connect your watch to your PC. Make sure your PC has `adb` (aka Android Debug Bridge) installed. 
 2. Go to [Releases](https://git.ft2.club/fred913/HeartbeatTracking/releases) and find the latest one (the top of the list), and download the APK file from the `Files` section.
 3. Open a terminal at where the APK is located.  
 4. Type `adb devices` and check if your Wear has connected. It should be like this:
